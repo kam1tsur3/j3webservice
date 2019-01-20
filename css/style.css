@@ -1,0 +1,665 @@
+@charset "utf-8";
+
+
+
+/*Google Fontsの読み込み
+------------------------------------------------------------------------------------------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Tangerine');
+
+
+/*PC・タブレット・スマホ共通設定
+------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*全体の設定
+---------------------------------------------------------------------------*/
+body {
+	margin: 0px;
+	padding: 0px;
+	color: #fff;	/*全体の文字色*/
+	background: #000;	/*背景色*/
+	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;	/*フォント種類*/
+	font-size: 14px;	/*文字サイズ*/
+	line-height: 2;		/*行間*/
+	-webkit-text-size-adjust: none;
+}
+h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,form,figure,form {margin: 0px;padding: 0px;font-size: 100%;}
+ul {list-style-type: none;}
+ol {padding-left: 40px;padding-bottom: 15px;}
+img {border: none;max-width: 100%;height: auto;vertical-align: middle;}
+table {border-collapse:collapse;font-size: 100%;border-spacing: 0;}
+iframe {width: 100%;}
+
+/*リンク（全般）設定
+---------------------------------------------------------------------------*/
+a {
+	color: #fff;	/*リンクテキストの色*/
+	-webkit-transition: 0.5s;	/*マウスオン時の移り変わるまでの時間設定。0.5秒。*/
+	transition: 0.5s;			/*同上*/
+}
+a:hover {
+	color: #FFE900;				/*マウスオン時の文字色*/
+	text-decoration: none;		/*マウスオン時にリンクの下線を消す設定*/
+}
+
+/*コンテナー（HPを囲む一番外側のブロック）
+---------------------------------------------------------------------------*/
+#container {
+	max-width: 1000px;	/*最大幅の指定。「width」でなく「max-width」をう事で画面幅を小さくした際も中身が自動縮小される。（※このテンプレートの場合）*/
+	margin: 0 auto;
+}
+
+/*ヘッダー（ロゴが入った最上段のブロック）
+---------------------------------------------------------------------------*/
+header {
+	padding: 20px 0px;	/*上下、左右へのボックス内への余白*/
+}
+/*ロゴ画像*/
+#logo img {
+	position: relative;z-index: 1;
+	width: 300px;	/*画像幅*/
+}
+
+/*メインメニュー
+---------------------------------------------------------------------------*/
+/*メニューブロックの設定*/
+#menubar {
+	position: absolute;
+	left: 5%;	/*メイン画像ブロックに対して左から5%の場所に配置*/
+	top: 30%;	/*メイン画像ブロックに対して上から30%の場所に配置*/
+}
+/*メニュー１個あたりの設定*/
+#menubar li {
+	float: left;	/*左に回り込み*/
+	margin-right: 10px;	/*メニュー間の余白*/
+}
+#menubar li a {
+	text-decoration: none;
+	display: block;
+	color: #999;	/*文字色*/
+	text-align: center;	/*内容をセンタリング*/
+	background: #fff;	/*背景色（古いブラウザ用）*/
+	background: #fff padding-box;	/*背景色。padding-boxは、下で設定しているボーダーの半透明が反映される為に指定。*/
+	width: 100px;		/*メニューの幅*/
+	line-height: 100px;	/*メニューの高さ*/
+	border-radius: 50%;	/*角丸のサイズ*/
+	border: 10px solid rgba(255,255,255,0.4);	/*枠線の幅、線種、rgb指定での色。255,255,255は白のことで、0.4が透明度40%の事。*/
+}
+/*マウスオン時*/
+#menubar li a:hover {
+	-webkit-box-shadow: 0px 0px 30px rgba(255,255,255,0.8);	/*ボックスの影。下へ、右へ、広げる範囲、rgb指定での色。255,255,255は白のことで、0.8が透明度80%の事。*/
+	box-shadow: 0px 0px 30px rgba(255,255,255,0.8);
+	color: #333;		/*文字色*/
+}
+/*小さい端末用(画面幅480px以下)メニューを表示させない*/
+#menubar-s {
+	display: none;
+}
+/*３本バーアイコンを表示させない*/
+#menubar_hdr {
+	display: none;
+}
+
+/*コンテンツ
+---------------------------------------------------------------------------*/
+#contents {
+	clear: both;
+	overflow: hidden;
+	padding-bottom: 40px;
+}
+
+/*メインコンテンツ
+---------------------------------------------------------------------------*/
+/*メインコンテンツブロック*/
+#main {
+	float: right;	/*右に回り込み*/
+	overflow: hidden;
+	width: 75%;	/*ボックス幅*/
+}
+/*メインコンテンツのh2(見出し)タグの設定*/
+#main h2 {
+	clear: both;
+	margin-bottom: 15px;
+	padding: 5px 15px;	/*上下、左右への余白*/
+	background: #887b5a;	/*背景色（古いブラウザ用）*/
+	background: linear-gradient(#887b5a, #74694d);	/*グラデーション*/
+	border-radius: 8px;	/*角丸のサイズ*/
+}
+/*メインコンテンツのh3(見出し)タグの設定*/
+#main h3 {
+	clear: both;
+	margin-bottom: 15px;
+	padding: 4px 15px;	/*上下、左右への余白*/
+	color: #fff;		/*文字色*/
+	background: linear-gradient(#111, #000);	/*グラデーション*/
+	border: 1px solid #666;	/*枠線の幅、線種、色*/
+	border-radius: 8px;	/*角丸のサイズ*/
+}
+/*メインコンテンツのp(段落)タグ設定*/
+#main p {
+	padding: 0px 15px 14px;	/*上、左右、下への余白*/
+}
+#main h2 + p,
+#main h3 + p {
+	margin-top: -5px;
+}
+
+/*トップページの「Today's Cast」ブロック
+---------------------------------------------------------------------------*/
+/*「Today's Cast」ボックスの指定*/
+#today {
+	overflow: hidden;
+	margin-bottom: 30px;
+	background: linear-gradient(#000 110px,#555 110px, #222 130px,#111 132px,#333 100%);
+}
+/*「Today's Cast」ボックス内のh2(見出し)タグの設定*/
+#today h2 {
+	font-family: 'Tangerine', cursive;	/*冒頭で読み込んでいるフォントを使う指定*/
+	font-size: 100px;	/*文字サイズ*/
+	line-height: 1;
+	margin-bottom: 10px;
+	color: #887b5a;	/*文字色*/
+}
+/*「Today's Cast」ボックス内のp(段落)タグの設定*/
+#today p {
+	padding: 10px;
+}
+/*「Today's Cast」ブロック内の各キャストボックスの設定*/
+#today .list {
+	width: 10%;	/*ボックスの幅*/
+	padding: 2.5%;	/*ボックス内の余白*/
+}
+
+/*Cast用の各ブロック
+---------------------------------------------------------------------------*/
+/*各キャストボックスの設定*/
+.list {
+	position: relative;
+	overflow: hidden;
+	font-size: 11px;	/*文字サイズ*/
+	line-height: 1.5;
+	width: 15%;		/*ボックスの幅*/
+	padding: 4%;	/*ボックス内の余白*/
+	float: left;
+	margin-left: 1.25%;
+	margin-bottom: 15px;
+	background: url(../images/bg1.png) no-repeat center center/100% 100%;	/*背景画像の読み込み*/
+	border: 1px solid #848249;	/*枠線の幅、線種、色。古いブラウザだと背景画像は出ず、このラインだけ出ます。*/
+	-webkit-transition: 0.5s;	/*マウスオン時の移り変わるまでの時間設定。0.5秒。*/
+	transition: 0.5s;			/*同上*/
+}
+.list a {
+	text-decoration: none;
+	display: block;
+	overflow: hidden;
+	height: 200px;	/*高さ*/
+}
+/*ボックス内のp(段落)タグ設定*/
+.list p {
+	padding: 0px !important;
+}
+/*ボックス内のh4タグ設定*/
+.list h4 {
+	padding: 0px;
+	color: #887b5a;	/*文字色*/
+}
+/*h4タグとpタグのマウスオン時の文字色*/
+.list a:hover h4,
+.list a:hover p {
+	color: #FFE900;
+}
+/*マウスオン時のボックス*/
+.list:hover {
+	-webkit-box-shadow: 0px 0px 10px #FFE900;	/*外側に光る影の設定。10pxが広がる距離。*/
+	box-shadow: 0px 0px 10px #FFE900;			/*同上*/
+
+}
+
+/*スタッフ詳細ページ　staff.html
+---------------------------------------------------------------------------*/
+/*写真とテーブルを囲むボックス*/
+#main .staff {
+	margin: 0px 10px;
+}
+/*左側ボックス*/
+#main .staff .left {
+	float: left;	/*左に回り込み*/
+	width: 35%;		/*幅*/
+	padding-bottom: 15px;
+}
+/*左側ボックス内のp(段落)タグ*/
+#main .staff .left p {
+	padding: 0px;
+}
+/*右側ボックス*/
+#main .staff .right {
+	width: 60%;		/*幅*/
+	float: right;	/*右に回り込み*/
+	padding-bottom: 15px;
+}
+/*テーブルタグの左側の見出し（※幅以外は下の方にある「テーブル１」のスタイルで設定しています）*/
+#main .staff .right .ta1 th {
+	width: 100px;	/*幅*/
+}
+
+/*サブコンテンツ
+---------------------------------------------------------------------------*/
+#sub {
+	float: left;	/*左に回り込み*/
+	overflow: hidden;
+	width: 22%;		/*ブロック幅*/
+}
+/*subコンテンツ内のh2タグ設定*/
+#sub h2 {
+	margin-bottom: 10px;
+	color: #887b5a;	/*文字色*/
+}
+/*subコンテンツのh2タグの１文字目への設定*/
+#sub h2::first-letter {
+	border-left: 3px solid #887b5a;	/*左側のアクセント用ラインの幅、線種、色*/
+	padding-left: 10px;
+}
+/*subコンテンツ内のp(段落)タグ設定*/
+#sub p {
+	padding-bottom: 15px;
+}
+
+/*サブコンテンツ内のメニュー
+---------------------------------------------------------------------------*/
+/*メニュー全体の設定*/
+ul.submenu {
+	border-top: solid 1px #333;	/*上の線の線種、幅、色*/
+}
+/*メニュー１個ごとの設定*/
+ul.submenu li {
+	border-bottom: solid 1px #333;	/*下の線の線種、幅、色*/
+}
+ul.submenu li a {
+	text-decoration: none;
+	display: block;
+}
+
+ul.submenu2 {
+	border-top: solid 1px #333;	/*上の線の線種、幅、色*/
+}
+/*メニュー１個ごとの設定*/
+ul.submenu2 li {
+	border-bottom: solid 1px #333;	/*下の線の線種、幅、色*/
+}
+ul.submenu2 li a {
+	text-decoration: none;
+	display: block;
+}
+/*サブコンテンツ内のbox1
+---------------------------------------------------------------------------*/
+#sub .box1 {
+	overflow: hidden;
+	padding: 15px;			/*ボックス内の余白*/
+	margin-bottom: 15px;	/*ボックスの下に空けるスペース*/
+	border: 3px solid #887b5a;	/*枠線の幅、線種、色*/
+}
+
+/*PAGE TOP設定
+---------------------------------------------------------------------------*/
+#pagetop a {
+	clear: both;
+	color: #FFF;		/*文字色*/
+	font-size: 20px;	/*文字サイズ*/
+	padding: 0px 30px;	/*上下、左右へのボックス内余白*/
+	background: #333;	/*背景色*/
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	float: right;
+	border-radius: 4px 4px 0px 0px;	/*角丸のサイズ。左上、右上、右下、左下。*/
+}
+/*マウスオン時*/
+#pagetop a:hover {
+	background-color: #999;	/*背景色*/
+	color: #FFF;			/*文字色*/
+}
+
+/*フッター設定
+---------------------------------------------------------------------------*/
+footer {
+	clear: both;
+	background: #887b5a;	/*背景色*/
+	text-align: center;
+	padding: 10px;
+}
+footer a {
+	text-decoration: none;
+}
+footer .pr {
+	display: block;
+	font-size: 80%;
+}
+
+/*トップページ内「更新情報・お知らせ」ブロック
+---------------------------------------------------------------------------*/
+/*ブロック全体の設定*/
+#new dl{
+	padding-left: 15px;
+	margin-bottom: 15px;
+	height: 110px;	/*高さ*/
+	overflow: auto;	/*高さの設定を超えるとスクロールが自動で出る設定。全部表示させていたいならこの行と上の行を削除。*/
+}
+/*日付設定*/
+#new dt {
+	font-weight: bold;	/*太字にする設定。標準がいいならこの行削除。*/
+	float: left;
+	width: 8em;
+}
+/*記事設定*/
+#new dd {
+	padding-left: 8em;
+}
+
+/*テーブル
+---------------------------------------------------------------------------*/
+/*ta1設定*/
+.ta1 {
+	width: 100%;
+	margin-bottom: 15px;
+}
+.ta1, .ta1 td, .ta1 th {
+	border: 1px solid #666;	/*テーブルの枠線の幅、線種、色*/
+	padding: 10px;	/*ボックス内の余白*/
+	word-break: break-all;
+}
+/*テーブル１行目に入った見出し部分*/
+.ta1 th.tamidashi {
+	width: auto;
+	text-align: left;	/*左よせ*/
+}
+/*ta1の左側ボックス*/
+.ta1 th {
+	width: 140px;	/*幅*/
+	text-align: center;	/*センタリング*/
+}
+
+/*トップページのNEWアイコン
+---------------------------------------------------------------------------*/
+.newicon {
+	background: #F00;
+	color: #FFF;
+	font-size: 10px;
+	padding: 0px 5px;
+	border-radius: 2px;
+	margin: 0px 5px;
+}
+
+/*「人気」「NEW」マーク
+---------------------------------------------------------------------------*/
+/*共通設定*/
+.mark1, .mark2 {
+	display: inline-block;
+	position: absolute;
+	left: 15px;	/*ボックス内の左から15pxの場所に配置*/
+	top: 15px;	/*ボックス内の上から15pxの場所に配置*/
+	width: 40px;		/*幅*/
+	line-height: 40px;	/*高さ*/
+	font-size: 9px;		/*文字サイズ*/
+	text-align: center;
+	color: #fff;	/*文字色*/
+	border-radius: 50%;	/*角丸のサイズ*/
+	transform: rotate(-30deg);	/*左回転で30度傾ける設定*/
+	-webkit-box-shadow: 1px 2px 4px rgba(0,0,0,0.6);	/*ボックスの影。下へ、右へ、広げる範囲、rgb指定での色。0,0,0は黒のことで、0.6が透明度60%の事。*/
+	box-shadow: 1px 2px 4px rgba(0,0,0,0.6);
+}
+.mark1 {
+	background: #df246f;	/*mark1の背景色*/
+}
+.mark2 {
+	background: #249fdf;	/*mark2の背景色*/
+}
+
+/*その他
+---------------------------------------------------------------------------*/
+.look {color:#fff;background: #666;padding:5px;border-radius: 4px;}
+.mb15,.mb1em {margin-bottom: 15px;}
+.clear {clear: both;}
+ul.disc {padding: 0em 25px 1em;list-style: disc;}
+.color1 {color: #887b5a !important;}
+.pr {font-size: 10px;}
+.wl {width: 96%;}
+.ws {width: 50%;}
+.c {text-align: center;}
+.r {text-align: right;}
+.l {text-align: left;}
+img.fr {float: right;margin-left: 10px;margin-bottom: 10px;}
+img.fl {float: left;margin-right: 10px;margin-bottom: 10px;}
+.big1 {font-size: 30px;letter-spacing: 0.2em;}
+.mini1 {font-size: 11px;}
+.sh{display:none;}
+.dn{display:none;}
+
+
+
+/*画面幅1000px以下の設定
+------------------------------------------------------------------------------------------------------------------------------------------------------*/
+@media screen and (max-width:1000px){
+
+/*コンテナー（HPを囲む一番外側のブロック）
+---------------------------------------------------------------------------*/
+#container {
+	margin: 0px 4%;
+}
+
+}
+
+
+
+/*画面幅800px以下の設定
+------------------------------------------------------------------------------------------------------------------------------------------------------*/
+@media screen and (max-width:800px){
+
+/*メインメニュー
+---------------------------------------------------------------------------*/
+/*メニュー１個あたりの設定を少し小さくする*/
+#menubar li a {
+	width: 80px;
+	line-height: 80px;
+}
+
+/*トップページの「Today's Cast」ブロック
+---------------------------------------------------------------------------*/
+/*「Today's Cast」ブロック内の各キャストボックスの設定*/
+#today .list {
+	width: 21%;	/*ボックスの幅*/
+	padding: 5.2%;	/*ボックス内の余白*/
+}
+#today .list a {
+	height: 230px;	/*高さ*/
+}
+	
+/*main,subコンテンツ
+---------------------------------------------------------------------------*/
+#main, #sub {
+	float: none;
+	width: auto;
+}
+
+/*サブコンテンツ内のメニュー（※800px以下〜481px以上で２列にする）
+---------------------------------------------------------------------------*/
+/*メニュー１個ごとの設定*/
+ul.submenu li {
+	float: left;
+	width: 50%;
+}
+
+ul.submenu2 li {
+	float: left;
+	width: 50%;
+}
+/*その他
+---------------------------------------------------------------------------*/
+body.s-n #sub {display: none;}
+.fl-half{float:left;width:45%;margin-left:3%;}
+
+}
+
+
+/*画面幅600px以下の設定
+------------------------------------------------------------------------------------------------------------------------------------------------------*/
+@media screen and (max-width:600px){
+
+/*メインメニュー
+---------------------------------------------------------------------------*/
+/*メニュー１個あたりの設定を更に小さくする*/
+#menubar li a {
+	width: 60px;
+	line-height: 60px;
+	font-size: 11px;
+	border: 5px solid #fff;
+	border: 5px solid rgba(255,255,255,0.4);
+}
+
+}
+
+
+
+/*画面幅480px以下の設定
+------------------------------------------------------------------------------------------------------------------------------------------------------*/
+@media screen and (max-width:480px){
+
+/*ヘッダー（ロゴが入った最上段のブロック）
+---------------------------------------------------------------------------*/
+/*ロゴ画像*/
+#logo img {
+	width: 80%;
+}
+
+/*メインメニュー
+---------------------------------------------------------------------------*/
+/*メニューブロックの設定*/
+#menubar-s {
+	margin-bottom: 40px;
+	border-top: 1px solid #fff;
+}
+/*メニュー１個あたりの設定*/
+#menubar-s li a {
+	text-decoration: none;
+	display: block;
+	text-align: center;
+	line-height: 50px;
+	border-bottom: 1px solid #fff;
+}
+/*小さい端末用(画面幅480px以下)メニューを非表示から表示に切り替える*/
+#menubar-s {
+	display: block;
+}
+/*大きな端末用(画面幅481px以上)メニューを非表示にする*/
+#menubar {
+	display: none;
+}
+
+/*３本バーアイコン設定
+---------------------------------------------------------------------------*/
+/*３本バーブロック*/
+#menubar_hdr {
+	display: block;
+	position: absolute;
+	top: 18px;		/*上から18pxの場所に配置*/
+	right: 4%;	/*右から4%の場所に配置*/
+	width: 30px;	/*幅*/
+	border: 1px solid #fff;	/*枠線の幅、線種、色*/
+	padding: 12px 10px 5px;	/*上、左右、下へのボックス内余白*/
+	background: #000;	/*背景色*/
+}
+/*３本のバー（1本あたり）*/
+#menubar_hdr span {
+	display: block;
+	border-top: 3px solid #fff;	/*枠線の幅、線種、色*/
+	margin-bottom: 7px;	/*バー同士の余白*/
+}
+
+/*トップページの「Today's Cast」ブロックと、Cast用の各ブロック
+---------------------------------------------------------------------------*/
+/*「Today's Cast」ボックスの指定*/
+#today {
+	background: none;
+}
+/*「Today's Cast」ボックス内の見出しタグの設定*/
+#today h2 {
+	font-size: 40px;	/*文字サイズを小さく変更*/
+}
+/*各キャストボックスの設定*/
+.list {
+	width: auto !important;
+	float: none !important;
+	margin-left: 0 !important;
+	background: url(../images/bg2.png) no-repeat center center/100% 100%;	/*横長画像の読み込み*/
+	padding: 7% !important;
+}
+.list a {
+	height: auto !important;
+}
+.list figure {
+	float: left;
+	width: 30%;
+	margin: 0 5%;
+}
+
+/*スタッフ詳細ページ　staff.html
+---------------------------------------------------------------------------*/
+/*左側ボックス、右側ボックス*/
+#main .staff .left,
+#main .staff .right {
+	float: none;
+	width: auto;
+}
+#main .left {
+	text-align: center;
+}
+#main .left figure img {
+	width: 70%;	/*写真を少しだけ小さくする。この行を削除すると幅一杯になる。*/
+}
+
+/*サブコンテンツ内のメニュー（※800px以下〜481px以上で一旦２列になっていたものを１列に戻す）
+---------------------------------------------------------------------------*/
+/*メニュー１個ごとの設定*/
+ul.submenu li {
+	float: none;
+	width: auto;
+}
+ul.submenu2 li {
+	float: none;
+	width: auto;
+}
+
+/*トップページ内「更新情報・お知らせ」ブロック
+---------------------------------------------------------------------------*/
+section#new h2.open {
+	background: #887b5a url(../images/btn_minus.png) no-repeat right center/34px 34px;
+}
+section#new h2.close {
+	background: #887b5a url(../images/btn_plus.png) no-repeat right center/34px 34px;
+}
+
+/*テーブル
+---------------------------------------------------------------------------*/
+/*テーブル内の左側*/
+.ta1 th {
+	width: 100px;
+	padding: 5px;
+}
+/*テーブル内の右側*/
+.ta1 td {
+	width: auto;
+	padding: 5px;
+}
+
+/*その他
+---------------------------------------------------------------------------*/
+.ws,.wl {width: 95%;}
+img.fr,img.fl {float: none;margin: 0;width: 100%;}
+.sh{display:block;}
+.pc{display:none;}
+.fl-half{float:none;width:100%;margin-left:0;}
+
+}
+
+table.list_table  td.c_name {
+	width: 70px;
+}
+	
